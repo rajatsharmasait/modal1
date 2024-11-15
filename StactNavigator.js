@@ -1,22 +1,26 @@
-import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
-import { StyleSheet } from "react-native";
-import BookingScreen from "./screens/BookingScreen";
-import ChatListScreen from "./screens/ChatListScreen";
-import CreateListingScreen from "./screens/CreateListingScreen";
-import DetailsScreen from "./screens/DetailsScreen";
-import HomeScreen from "./screens/HomeScreen";
-import LoginScreen from "./screens/LoginScreen";
-import MessagesScreen from "./screens/MessageScreen";
-import ProfileScreen from "./screens/ProfileScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import SavedScreen from "./screens/SavedScreen";
+import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import BookingScreen from './screens/BookingScreen';
+import ChatListScreen from './screens/ChatListScreen';
+import CreateListingScreen from './screens/CreateListingScreen';
+import DetailsScreen from './screens/DetailsScreen';
+import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './screens/LoginScreen';
+import MessagesScreen from './screens/MessageScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import SavedScreen from './screens/SavedScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
+
 const StackNavigator = () => {
   const Tab = createBottomTabNavigator();
   const Stack = createNativeStackNavigator();
+
   function BottomTabs() {
     return (
       <Tab.Navigator>
@@ -24,8 +28,8 @@ const StackNavigator = () => {
           name="Home"
           component={HomeScreen}
           options={{
-            tabBarLabel: "Home",
-            tabBarActiveTintColor: "#4CAF50",
+            tabBarLabel: 'Home',
+            tabBarActiveTintColor: '#4CAF50',
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
@@ -39,8 +43,8 @@ const StackNavigator = () => {
           name="Saved"
           component={SavedScreen}
           options={{
-            tabBarLabel: "Saved",
-            tabBarActiveTintColor: "#4CAF50",
+            tabBarLabel: 'Saved',
+            tabBarActiveTintColor: '#4CAF50',
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
@@ -54,8 +58,8 @@ const StackNavigator = () => {
           name="Bookings"
           component={BookingScreen}
           options={{
-            tabBarLabel: "Map",
-            tabBarActiveTintColor: "#4CAF50",
+            tabBarLabel: 'Map',
+            tabBarActiveTintColor: '#4CAF50',
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
@@ -69,8 +73,8 @@ const StackNavigator = () => {
           name="Profile"
           component={ProfileScreen}
           options={{
-            tabBarLabel: "Profile",
-            tabBarActiveTintColor: "#4CAF50",
+            tabBarLabel: 'Profile',
+            tabBarActiveTintColor: '#4CAF50',
             headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
@@ -83,6 +87,7 @@ const StackNavigator = () => {
       </Tab.Navigator>
     );
   }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -108,18 +113,28 @@ const StackNavigator = () => {
         />
         <Stack.Screen
           name="CreateListing"
-          component={CreateListingScreen} // Add the new screen here
-          options={{ headerShown: false, title: "Create Listing" }}
+          component={CreateListingScreen}
+          options={{ headerShown: false, title: 'Create Listing' }}
         />
         <Stack.Screen
           name="ChatList"
           component={ChatListScreen}
-          options={{ title: "Chats" }}
+          options={{ title: 'Chats' }}
         />
         <Stack.Screen
           name="Messages"
           component={MessagesScreen}
-          options={{ title: "Chat" }}
+          options={{ title: 'Chat' }}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={PaymentScreen}
+          options={{ title: 'Receipt' }}
+        />
+        <Stack.Screen
+          name="CheckoutScreen"
+          component={CheckoutScreen}
+          options={{ title: 'Pay' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -127,4 +142,3 @@ const StackNavigator = () => {
 };
 
 export default StackNavigator;
-const styles = StyleSheet.create({});

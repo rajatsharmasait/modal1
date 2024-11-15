@@ -130,7 +130,7 @@ const DetailsScreen = ({ route }) => {
       {/* Footer with price and Reserve button */}
       <View style={styles.footer}>
         <Text style={styles.price}>€{item.price} / Duration</Text>
-        <TouchableOpacity style={styles.reserveButton}>
+        <TouchableOpacity style={styles.reserveButton} onPress={ () => navigation.navigate('Payment', {item})}>
           <Text style={styles.reserveText}>Reserve</Text>
         </TouchableOpacity>
       </View>
